@@ -149,7 +149,7 @@ from helpers import execute_current_python_in_container
             "mcr.microsoft.com/vscode/devcontainers/python:3.10-bullseye",
             "PowerShell/PowerShell",
             "pwsh",
-            "--asset-regex '^(?!.*(fxdependent))'",
+            "",
             "linux/amd64",
         ),
         (
@@ -181,7 +181,7 @@ from helpers import execute_current_python_in_container
         ),
         (  # prerelease
             "pwsh --version",
-            1,
+            0,
             "mcr.microsoft.com/vscode/devcontainers/python:3.10-bullseye",
             "PowerShell/PowerShell",
             "pwsh",
