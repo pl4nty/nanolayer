@@ -59,9 +59,14 @@ jobs:
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
-    
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        with:
+          install: true
+
+      - name: Set up Namespace CLI
+        uses: namespacelabs/nscloud-setup@v0
+
+      - name: Connect to Namespace Buildx
+        uses: namespacelabs/nscloud-setup-buildx-action@v0
 
       - name: "Test docker platform"
         run: |
