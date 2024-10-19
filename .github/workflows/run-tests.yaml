@@ -76,6 +76,7 @@ jobs:
           python -m pip install --upgrade pip 
           python -m pip install --upgrade build setuptools wheel setuptools-scm
           pip install -r requirements.txt -r requirements-dev.txt
+          sudo apt-get install python3.10-distutils
       - name: "Test with pytest"
         run: |
           python -m pytest -s -v ${{ matrix.config.subtest_dir }}
