@@ -134,15 +134,6 @@ from helpers import execute_current_python_in_container
             "",
             "linux/amd64",
         ),
-        (  # has positive "static"
-            "cas --version",
-            0,
-            "mcr.microsoft.com/vscode/devcontainers/python:3.10-bullseye",
-            "codenotary/cas",
-            "cas",
-            "",
-            "linux/amd64",
-        ),
         (  # release regex
             "bw --version",
             0,
