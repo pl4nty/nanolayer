@@ -9,3 +9,4 @@ wheel
 setuptools-scm 
 packaging
 dcontainer>=1.0.6
+python3-distutils
