@@ -70,10 +70,6 @@ jobs:
       - name: Connect to Namespace Buildx
         uses: namespacelabs/nscloud-setup-buildx-action@v0
 
-      - name: "Test docker platform"
-        run: |
-          DOCKER_DEFAULT_PLATFORM=linux/arm64 docker run -t ubuntu uname -a
-
       - name: "Set up Python 3.10"
         uses: actions/setup-python@v5
         with:
@@ -85,11 +81,4 @@ jobs:
           pip install -r requirements.txt -r requirements-dev.txt
       - name: "Test with pytest"
         run: |
-          docker() {
-            if [ "$1" = "build" ]; then
-              command docker buildx build --load "${@:2}"
-            else
-              command docker "$@"
-            fi
-          }
           python -m pytest -s -v ${{ matrix.config.subtest_dir }}
