@@ -4,8 +4,6 @@
 #
 #    pip-compile
 #
-annotated-types==0.7.0
-    # via pydantic
 certifi==2024.8.30
     # via sentry-sdk
 click==8.1.7
@@ -18,10 +16,8 @@ mdurl==0.1.2
     # via markdown-it-py
 natsort==8.4.0
     # via -r requirements.in
-pydantic==2.9.2
+pydantic==1.10.7
     # via -r requirements.in
-pydantic-core==2.23.4
-    # via pydantic
 pygments==2.18.0
     # via rich
 rich==13.9.2
@@ -35,7 +31,6 @@ typer==0.12.5
 typing-extensions==4.12.2
     # via
     #   pydantic
-    #   pydantic-core
     #   rich
     #   typer
 urllib3==2.2.3
