@@ -53,5 +53,8 @@ def test_aptitude_install(
     full_test_command = f"sudo PYTHONPATH=$PYTHONPATH python3 -m nanolayer install aptitude {packages} {ppas_cmd} && {test_command}"
 
     assert excpected_result == execute_current_python_in_container(
-        test_command=full_test_command, image=image, docker_platform=docker_platform
+        test_command=full_test_command,
+        image=image,
+        docker_platform=docker_platform,
+        remote_user="root" if docker_platform != "linux/amd64" else None,
     )

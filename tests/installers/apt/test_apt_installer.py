@@ -56,4 +56,5 @@ def test_apt_install(
         test_command=full_test_command,
         image=image,
         docker_platform=docker_platform,
+        remote_user="root" if docker_platform != "linux/amd64" else None,
     )

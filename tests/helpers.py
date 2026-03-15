@@ -3,11 +3,9 @@ import platform
 import site
 import sys
 import tempfile
+from importlib.metadata import version as get_pkg_version
 from pathlib import Path
 from typing import Optional
-
-import git
-import invoke
 from dcontainer.devcontainer.feature_generation.oci_feature_generator import (
     OCIFeatureGenerator,
 )
@@ -26,6 +24,12 @@ def execute_current_python_in_container(
     docker_platform: str = "linux/amd64",
     nanolayer_version: Optional[str] = None,
 ) -> int:
+    if nanolayer_version is None:
+        try:
+            nanolayer_version = get_pkg_version("nanolayer")
+        except Exception:
+            nanolayer_version = "0.5.6"
+
     feature_definition = FeatureDefinition(id="test", version="0.0.0")
     mounts = []
     target_mounts_location = f"/mnt/{platform.node()}"
