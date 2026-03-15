@@ -6,6 +6,10 @@ import tempfile
 from importlib.metadata import version as get_pkg_version
 from pathlib import Path
 from typing import Optional
+
+import git
+import invoke
+
 from dcontainer.devcontainer.feature_generation.oci_feature_generator import (
     OCIFeatureGenerator,
 )
