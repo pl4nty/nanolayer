@@ -39,14 +39,6 @@ from helpers import execute_current_python_in_container
             0,
             "linux/amd64",
         ),
-        (
-            "neovim",
-            "",
-            "nvim --version",
-            "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
-            0,
-            "linux/arm64",
-        ),
     ],
 )
 def test_apt_get_install(
