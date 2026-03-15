@@ -35,7 +35,7 @@ from helpers import execute_current_python_in_container
             "neovim",
             "",
             "nvim --version",
-            "mcr.microsoft.com/devcontainers/python:3.11-bookworm",
+            "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
             0,
             "linux/arm64",
         ),

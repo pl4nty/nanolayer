@@ -28,7 +28,7 @@ from helpers import execute_current_python_in_container
             "--ppas ppa:neovim-ppa/stable --force-ppas-on-non-ubuntu",
             "nvim --version",
             "mcr.microsoft.com/devcontainers/python:3.11-bookworm",  # debian based
-            1,
+            0,
             "linux/amd64",
         ),
         (
@@ -43,7 +43,7 @@ from helpers import execute_current_python_in_container
             "neovim",
             "",
             "nvim --version",
-            "mcr.microsoft.com/devcontainers/python:3.11-bookworm",
+            "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
             0,
             "linux/arm64",
         ),
