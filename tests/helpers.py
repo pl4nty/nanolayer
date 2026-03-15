@@ -34,6 +34,9 @@ def execute_current_python_in_container(
         except Exception:
             nanolayer_version = "0.5.6"
 
+    if not nanolayer_version.startswith("v"):
+        nanolayer_version = f"v{nanolayer_version}"
+
     feature_definition = FeatureDefinition(id="test", version="0.0.0")
     mounts = []
     target_mounts_location = f"/mnt/{platform.node()}"
