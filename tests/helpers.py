@@ -64,8 +64,11 @@ def execute_current_python_in_container(
         )
     )
 
+    # Put repo path first so local code takes precedence over installed PyPI packages
+    repo_target = mounts[-1].target
+    site_package_targets = [m.target for m in mounts[:-1]]
     containerEnv = {
-        "PYTHONPATH": f"{':'.join(mount.target for mount in mounts)}:$PYTHONPATH"
+        "PYTHONPATH": f"{repo_target}:{':'.join(site_package_targets)}:$PYTHONPATH"
     }
 
     feature_definition.mounts = mounts

@@ -19,7 +19,7 @@ from helpers import execute_current_python_in_container
             "neovim",
             "--ppas ppa:neovim-ppa/stable",
             "nvim --version",
-            "mcr.microsoft.com/vscode/devcontainers/python:3.10-bullseye",  # debian based
+            "mcr.microsoft.com/devcontainers/python:3.11-bookworm",  # debian based
             0,
             "linux/amd64",
         ),
@@ -27,7 +27,7 @@ from helpers import execute_current_python_in_container
             "neovim",
             "--ppas ppa:neovim-ppa/stable --force-ppas-on-non-ubuntu",
             "nvim --version",
-            "mcr.microsoft.com/vscode/devcontainers/python:3.10-bullseye",  # debian based
+            "mcr.microsoft.com/devcontainers/python:3.11-bookworm",  # debian based
             1,
             "linux/amd64",
         ),
@@ -35,7 +35,7 @@ from helpers import execute_current_python_in_container
             "neovim",
             "",
             "nvim --version",
-            "mcr.microsoft.com/vscode/devcontainers/python:3.10-bullseye",
+            "mcr.microsoft.com/devcontainers/python:3.11-bookworm",
             0,
             "linux/amd64",
         ),
@@ -43,7 +43,7 @@ from helpers import execute_current_python_in_container
             "neovim",
             "",
             "nvim --version",
-            "mcr.microsoft.com/vscode/devcontainers/python:3.10-bullseye",
+            "mcr.microsoft.com/devcontainers/python:3.11-bookworm",
             0,
             "linux/arm64",
         ),
