@@ -96,7 +96,7 @@ class ReleaseResolver:
         prerelease: bool = False,
     ) -> str:
         if asked_version == "latest":
-            if use_github_api or not cls._git_exists():
+            if use_github_api or prerelease or not cls._git_exists():
                 return cls.get_latest_release_tag(repo, release_tag_regex, prerelease)
             else:
                 return cls.get_latest_git_version_tag(repo, release_tag_regex)

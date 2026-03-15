@@ -11,7 +11,7 @@ from helpers import execute_current_python_in_container
             "neovim",
             "ppa:neovim-ppa/stable",
             "nvim --version",
-            "mcr.microsoft.com/devcontainers/base:ubuntu",
+            "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
             0,
             "linux/amd64",
         ),
