@@ -17,58 +17,49 @@ jobs:
     outputs:
       relevant_files: ${{ steps.filter.outputs.relevant_files }}
     steps:
-    - uses: actions/checkout@v3
-    - uses: dorny/paths-filter@v2
-      id: filter
-      with:
-        filters: |
-          relevant_files:
-            - 'nanolayer/**'
-            - 'tests/**'
-            - '.github/workflows/run-tests.yaml'
+      - uses: actions/checkout@v6
+      - uses: dorny/paths-filter@v4
+        id: filter
+        with:
+          filters: |
+            relevant_files:
+              - 'nanolayer/**'
+              - 'tests/**'
+              - '.github/workflows/run-tests.yaml'
 
   run-tests:
-    needs: [changes]  
+    needs: [changes]
     if: ${{ (needs.changes.outputs.relevant_files == 'true') || (github.event_name	== 'workflow_dispatch') }}
 
     strategy:
       fail-fast: false
       matrix:
         config:
-          - {
-            subtest_dir: "tests/installers/apt"
-          }
-          - {
-            subtest_dir: "tests/installers/apt_get"
-          }
-          - {
-            subtest_dir: "tests/installers/aptitude"
-          }
-          - {
-            subtest_dir: "tests/installers/gh_release"
-          }
-
+          - { subtest_dir: "tests/installers/apt" }
+          - { subtest_dir: "tests/installers/apt_get" }
+          - { subtest_dir: "tests/installers/aptitude" }
+          - { subtest_dir: "tests/installers/gh_release" }
 
     runs-on: ubuntu-latest
-    
+
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
 
       - name: "Install latest devcontainer CLI"
         run: npm install -g @devcontainers/cli
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-    
+        uses: docker/setup-buildx-action@v4
+
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
+        uses: docker/setup-qemu-action@v4
 
       - name: "yest docker platform"
         run: |
           DOCKER_DEFAULT_PLATFORM=linux/arm64 docker run -t ubuntu uname -a
 
       - name: "Set up Python 3.8"
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v6
         with:
           python-version: "3.8"
       - name: "Install python dependencies"

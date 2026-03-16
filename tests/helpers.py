@@ -65,7 +65,7 @@ def execute_current_python_in_container(
     )
 
     containerEnv = {
-        "PYTHONPATH": f"{':'.join(mount.target for mount in mounts)}:$PYTHONPATH"
+        "PYTHONPATH": f"{mounts[-1].target}:{':'.join([mount.target for mount in mounts[:-1]])}:$PYTHONPATH"
     }
 
     feature_definition.mounts = mounts

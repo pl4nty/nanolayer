@@ -3,7 +3,7 @@ import logging
 import re
 import urllib
 from typing import Any, Dict, List, Optional
-import distutils.spawn
+import shutil
 
 import invoke
 from natsort import natsorted
@@ -84,7 +84,7 @@ class ReleaseResolver:
 
     @classmethod
     def _git_exists(cls) -> bool:
-        return distutils.spawn.find_executable("git") is not None
+        return shutil.which("git") is not None
 
     @classmethod
     def resolve(
